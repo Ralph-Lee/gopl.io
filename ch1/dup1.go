@@ -10,17 +10,22 @@ import (
 
 func main() {
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-	fmt.Println("NOTE: The scanner will stop on EOF (End Of File). Typing [Ctrl-D] will send EOF and stop the scanner.")
+	fmt.Println("~~NOTE: The scanner will stop on EOF (End Of File).~~~~~~~~~")
+	fmt.Println("~~Typing [Ctrl-D] will send EOF and stop the scanner.~~~~~~~")
+	fmt.Println("~~On windows use [Ctrl-Z]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 	counts := make(map[string]int)
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
+		if input.Text() == "end" {
+			break
+		}
 		counts[input.Text()]++
 	}
 	// NOTE: ignoring potential errors from imput.Error()
 	for line, n := range counts {
 		if n > 1 {
-			fmt.Println("%d\t%s\n", n, line)
+			fmt.Printf("%d\t%s\n", n, line)
 		}
 	}
 }
