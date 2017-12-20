@@ -1,4 +1,5 @@
 // Echo3 prints its command-line arguments.
+// Demonstrate strings.Join func
 package main
 
 import (
