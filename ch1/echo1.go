@@ -1,4 +1,5 @@
 // Echo1 prints its command-line arguments.
+// Demonstrate for loop
 package main
 
 import (
