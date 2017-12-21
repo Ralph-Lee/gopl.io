@@ -1,9 +1,10 @@
 // Fetchall fetches URLs in parallel and reports their times and sizes.
-//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // CSP - Communicating Sequential Process.
-//
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // In CSP, a program is a parallel composition of processes that have no shared state;
 // the processes communicate and synchronize using channels.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 package main
 
 import (
