@@ -10,7 +10,7 @@ import (
 
 func main() {
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-	fmt.Println("~~NOTE: The scanner will stop on EOF (End Of File).~~~~~~~~~")
+	fmt.Println("~~Notes: The scanner will stop on EOF (End Of File).~~~~~~~~~")
 	fmt.Println("~~Typing [Ctrl-D] will send EOF and stop the scanner.~~~~~~~")
 	fmt.Println("~~On windows use [Ctrl-Z]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")

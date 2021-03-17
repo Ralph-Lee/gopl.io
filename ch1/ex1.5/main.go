@@ -1,6 +1,5 @@
-// Lissajous generates GIF animations of random Lissajous figures.
-// $ go build gopl.io/ch1/lissajous
-// $ ./lissajous > out.gif
+// ex1.5 generates GIF animations of random Lissajous figures, with a
+// green-on-black palette.
 package main
 
 import (
@@ -8,19 +7,37 @@ import (
 	"image/color"
 	"image/gif"
 	"io"
+	"log"
 	"math"
 	"math/rand"
+	"net/http"
 	"os"
+	"time"
 )
 
-var palette = []color.Color{color.White, color.Black}
+// Packages not needed by version in book.
+
+var palette = []color.Color{color.Black, color.RGBA{0, 255, 0, 255}}
 
 const (
-	whiteIndex = 0 // first color in palette
-	blackIndex = 1 // next color in palette
+	blackIndex = 0 // first color in palette
+	greenIndex = 1 // next color in palette
 )
 
 func main() {
+	// The sequence of images is deterministic unless we seed
+	// the pseudo-random number generator using the current time.
+	// Thanks to Randall McPherson for pointing out the omission.
+	rand.Seed(time.Now().UTC().UnixNano())
+
+	if len(os.Args) > 1 && os.Args[1] == "web" {
+		handler := func(w http.ResponseWriter, r *http.Request) {
+			lissajous(w)
+		}
+		http.HandleFunc("/", handler)
+		log.Fatal(http.ListenAndServe("localhost:8000", nil))
+		return
+	}
 	lissajous(os.Stdout)
 }
 
@@ -41,7 +58,8 @@ func lissajous(out io.Writer) {
 		for t := 0.0; t < cycles*2*math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t*freq + phase)
-			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), blackIndex)
+			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5),
+				greenIndex)
 		}
 		phase += 0.1
 		anim.Delay = append(anim.Delay, delay)
