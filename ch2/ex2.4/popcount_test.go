@@ -1,10 +1,7 @@
-// ex2.4: compare popcount implementations, including looping table lookups and
-// shift value.
+// ex2.4: compare popcount implementations, including looping table lookups and shift value.
 package popcount
 
-import (
-	"testing"
-)
+import "testing"
 
 func PopCountTableLoop(x uint64) int {
 	sum := 0

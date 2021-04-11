@@ -1,9 +1,7 @@
-// ex2.4: compare popcount implementations, including clear rightmost.
+// ex2.5: compare popcount implementations, including clear rightmost.
 package popcount
 
-import (
-	"testing"
-)
+import "testing"
 
 func PopCountTableLoop(x uint64) int {
 	sum := 0

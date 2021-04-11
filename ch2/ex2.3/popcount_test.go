@@ -2,9 +2,7 @@
 // bytewise table lookups.
 package popcount
 
-import (
-	"testing"
-)
+import "testing"
 
 func PopCountTableLoop(x uint64) int {
 	sum := 0
