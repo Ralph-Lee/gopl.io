@@ -1,4 +1,5 @@
-// ex3.3 prints an svg image, coloring its vertices based on their height.
+// ex3.3 prints an svg image,
+// coloring its vertices based on their height.
 package main
 
 import (
