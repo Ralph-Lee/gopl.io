@@ -1,9 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 61.
-//!+
-
 // Mandelbrot emits a PNG image of the Mandelbrot fractal.
 package main
 
@@ -47,8 +41,6 @@ func mandelbrot(z complex128) color.Color {
 	}
 	return color.Black
 }
-
-//!-
 
 // Some other interesting functions:
 

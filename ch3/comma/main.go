@@ -1,8 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 73.
-
 // Comma prints its argument numbers with a comma at each power of 1000.
 //
 // Example:
@@ -27,7 +22,6 @@ func main() {
 	}
 }
 
-//!+
 // comma inserts commas in a non-negative decimal integer string.
 func comma(s string) string {
 	n := len(s)
@@ -36,5 +30,3 @@ func comma(s string) string {
 	}
 	return comma(s[:n-3]) + "," + s[n-3:]
 }
-
-//!-
