@@ -1,9 +1,7 @@
 // ex4.4 rotates a slice of ints by one position to the left.
 package rotate
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func rotate_ints(ints []int) {
 	first := ints[0]

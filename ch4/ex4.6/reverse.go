@@ -1,9 +1,7 @@
 // ex4.6 reverses a utf8 string.
 package reverse
 
-import (
-	"unicode/utf8"
-)
+import "unicode/utf8"
 
 func rev(b []byte) {
 	size := len(b)
