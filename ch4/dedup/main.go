@@ -1,8 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 96.
-
 // Dedup prints only one instance of each line; duplicates are removed.
 package main
 
@@ -12,11 +7,21 @@ import (
 	"os"
 )
 
+//
 //!+
+//
 func main() {
+	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+	fmt.Println("~~Notes: The scanner will stop on EOF (End Of File).~~~~~~~~~")
+	fmt.Println("~~Typing [Ctrl-D] will send EOF and stop the scanner.~~~~~~~")
+	fmt.Println("~~On windows use [Ctrl-Z]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 	seen := make(map[string]bool) // a set of strings
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
+		if input.Text() == "end" {
+			break
+		}
 		line := input.Text()
 		if !seen[line] {
 			seen[line] = true
