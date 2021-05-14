@@ -5,12 +5,13 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/metal3d/go-slugify"
 	"log"
 	"net/http"
 	"net/url"
 	"os"
 	"path/filepath"
+
+	"github.com/metal3d/go-slugify"
 )
 
 const APIURL = "http://www.omdbapi.com/?"

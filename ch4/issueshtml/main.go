@@ -1,21 +1,17 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 115.
-
 // Issueshtml prints an HTML table of issues matching the search terms.
 package main
 
 import (
+	"html/template"
 	"log"
 	"os"
 
 	"gopl.io/ch4/github"
 )
 
+//
 //!+template
-import "html/template"
-
+//
 var issueList = template.Must(template.New("issuelist").Parse(`
 <h1>{{.TotalCount}} issues</h1>
 <table>
@@ -38,7 +34,9 @@ var issueList = template.Must(template.New("issuelist").Parse(`
 
 //!-template
 
+//
 //!+
+//
 func main() {
 	result, err := github.SearchIssues(os.Args[1:])
 	if err != nil {

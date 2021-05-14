@@ -1,8 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 113.
-
 // Issuesreport prints a report of issues matching the search terms.
 package main
 
@@ -15,7 +10,9 @@ import (
 	"gopl.io/ch4/github"
 )
 
+//
 //!+template
+//
 const templ = `{{.TotalCount}} issues:
 {{range .Items}}----------------------------------------
 Number: {{.Number}}
@@ -26,14 +23,18 @@ Age:    {{.CreatedAt | daysAgo}} days
 
 //!-template
 
+//
 //!+daysAgo
+//
 func daysAgo(t time.Time) int {
 	return int(time.Since(t).Hours() / 24)
 }
 
 //!-daysAgo
 
+//
 //!+exec
+//
 var report = template.Must(template.New("issuelist").
 	Funcs(template.FuncMap{"daysAgo": daysAgo}).
 	Parse(templ))
@@ -51,7 +52,9 @@ func main() {
 //!-exec
 
 func noMust() {
+	//
 	//!+parse
+	//
 	report, err := template.New("report").
 		Funcs(template.FuncMap{"daysAgo": daysAgo}).
 		Parse(templ)
