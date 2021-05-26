@@ -1,8 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 145.
-
 // Title2 prints the title of an HTML document specified by a URL.
 // It uses defer to simplify closing the response body stream.
 package main
@@ -35,19 +30,27 @@ func title(url string) error {
 	if err != nil {
 		return err
 	}
+
 	defer resp.Body.Close()
 
 	ct := resp.Header.Get("Content-Type")
 	if ct != "text/html" && !strings.HasPrefix(ct, "text/html;") {
+		//
+		// resp.Body.Close()
+		//
 		return fmt.Errorf("%s has type %s, not text/html", url, ct)
 	}
 
 	doc, err := html.Parse(resp.Body)
+	//
+	// resp.Body.Close()
+	//
 	if err != nil {
 		return fmt.Errorf("parsing %s as HTML: %v", url, err)
 	}
 
 	// ...print doc's title element...
+
 	//!-
 	visitNode := func(n *html.Node) {
 		if n.Type == html.ElementNode && n.Data == "title" &&

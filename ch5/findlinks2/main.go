@@ -1,8 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 125.
-
 // Findlinks2 does an HTTP GET on each URL, parses the
 // result as HTML, and prints the links within it.
 //
@@ -33,7 +28,9 @@ func visit(links []string, n *html.Node) []string {
 	return links
 }
 
+//
 //!+
+//
 func main() {
 	for _, url := range os.Args[1:] {
 		links, err := findLinks(url)

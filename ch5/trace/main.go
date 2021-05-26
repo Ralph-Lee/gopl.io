@@ -1,8 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 146.
-
 // The trace program uses defer to add entry/exit diagnostics to a function.
 package main
 
@@ -11,9 +6,13 @@ import (
 	"time"
 )
 
-//!+main
 func bigSlowOperation() {
+	//
+	// Don't forget the FINAL PARENTHESES,
+	// or the on-entry action will happen on exit
+	// and the on-exit action won't happen at all.
 	defer trace("bigSlowOperation")() // don't forget the extra parentheses
+	//
 	// ...lots of work...
 	time.Sleep(10 * time.Second) // simulate slow operation by sleeping
 }
@@ -23,8 +22,6 @@ func trace(msg string) func() {
 	log.Printf("enter %s", msg)
 	return func() { log.Printf("exit %s (%s)", msg, time.Since(start)) }
 }
-
-//!-main
 
 func main() {
 	bigSlowOperation()

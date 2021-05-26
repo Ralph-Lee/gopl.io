@@ -1,8 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 133.
-
 // Outline prints the outline of an HTML document tree.
 package main
 
@@ -32,14 +27,18 @@ func outline(url string) error {
 		return err
 	}
 
+	//
 	//!+call
+	//
 	forEachNode(doc, startElement, endElement)
 	//!-call
 
 	return nil
 }
 
+//
 //!+forEachNode
+//
 // forEachNode calls the functions pre(x) and post(x) for each node
 // x in the tree rooted at n. Both functions are optional.
 // pre is called before the children are visited (preorder) and
@@ -60,7 +59,9 @@ func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
 
 //!-forEachNode
 
+//
 //!+startend
+//
 var depth int
 
 func startElement(n *html.Node) {
