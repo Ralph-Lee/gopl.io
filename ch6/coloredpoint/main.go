@@ -1,19 +1,16 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 161.
-
 // Coloredpoint demonstrates struct embedding.
 package main
 
 import (
 	"fmt"
+	"image/color"
 	"math"
 )
 
+//----------------------------------------
 //!+decl
-import "image/color"
-
+//----------------------------------------
+//
 type Point struct{ X, Y float64 }
 
 type ColoredPoint struct {
@@ -21,7 +18,9 @@ type ColoredPoint struct {
 	Color color.RGBA
 }
 
+//----------------------------------------
 //!-decl
+//----------------------------------------
 
 func (p Point) Distance(q Point) float64 {
 	dX := q.X - p.X
@@ -35,7 +34,6 @@ func (p *Point) ScaleBy(factor float64) {
 }
 
 func main() {
-	//!+main
 	red := color.RGBA{255, 0, 0, 255}
 	blue := color.RGBA{0, 0, 255, 255}
 	var p = ColoredPoint{Point{1, 1}, red}
@@ -44,7 +42,6 @@ func main() {
 	p.ScaleBy(2)
 	q.ScaleBy(2)
 	fmt.Println(p.Distance(q.Point)) // "10"
-	//!-main
 }
 
 /*
