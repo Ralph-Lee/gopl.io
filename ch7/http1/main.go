@@ -1,8 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 191.
-
 // Http1 is a rudimentary e-commerce server.
 package main
 
@@ -11,8 +6,6 @@ import (
 	"log"
 	"net/http"
 )
-
-//!+main
 
 func main() {
 	db := database{"shoes": 50, "socks": 5}
@@ -30,8 +23,6 @@ func (db database) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		fmt.Fprintf(w, "%s: %s\n", item, price)
 	}
 }
-
-//!-main
 
 /*
 //!+handler
